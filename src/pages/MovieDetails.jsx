@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { getFilmById } from 'api/filmsApi';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import SingleFilm from 'components/SingleFilm/SingleFilm';
 import ButtonBack from 'components/ButtonBack/ButtonBack';
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/Reviews/Reviews';
-// import ButtonBack from 'components/ButtonBack/ButtonBack';
+import { Container, NavLinks } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const [film, setFilm] = useState('');
@@ -39,10 +37,14 @@ export const MovieDetails = () => {
       {loading && <p>...Loading</p>}
       <ButtonBack />
       <SingleFilm film={film} />
-      <div>
-        <Cast></Cast>
-        <Reviews></Reviews>
-      </div>
+      <Container>
+        <NavLinks to={'cast'}>Cast</NavLinks>
+        <NavLinks to={'reviews'}>Reviews</NavLinks>
+      </Container>
+
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

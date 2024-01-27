@@ -1,7 +1,8 @@
 import React from 'react';
+import { ButtonLink } from './ButtonBack.styled';
 
 const ButtonBack = () => {
-  return <div>← Go back</div>;
+  return <ButtonLink>← Go back</ButtonLink>;
 };
 
 export default ButtonBack;

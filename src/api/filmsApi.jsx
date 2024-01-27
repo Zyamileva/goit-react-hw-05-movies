@@ -18,6 +18,10 @@ export const getFilmById = id => {
   return instance.get(`/movie/${id}?${searchParams}`);
 };
 
+export const getCastByIdFilm = id => {
+  return instance.get(`/movie/${id}/credits?${searchParams}`);
+};
+
 // export const getPostById = id => {
 //   return instance.get(`/${id}`);
 // };

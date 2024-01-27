@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div``;
-
-export const Img = styled.img`
-  margin-bottom: 20px;
-  margin-top: 20px;
+export const Container = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
 `;
+
+export const Img = styled.img``;
 
 export const Wrapper = styled.div``;
 
