@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { nanoid } from 'nanoid';
+import { Button, FormSearch, Input } from './FilmSearchForm.styled';
 
 export const FilmSearchForm = ({ onSubmit }) => {
   const [state, setState] = useState({
@@ -35,10 +36,10 @@ export const FilmSearchForm = ({ onSubmit }) => {
   const searchId = useMemo(() => nanoid(), []);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormSearch onSubmit={handleSubmit}>
       <div>
-        <label htmlFor={searchId}>Enter search film</label>
-        <input
+        <label htmlFor={searchId}></label>
+        <Input
           id={searchId}
           ref={inputRef}
           value={state.search}
@@ -49,8 +50,8 @@ export const FilmSearchForm = ({ onSubmit }) => {
           placeholder="Enter search film"
         />
       </div>
-      <button type="submit">Search</button>
-    </form>
+      <Button type="submit">Search</Button>
+    </FormSearch>
   );
 };
 export default FilmSearchForm;

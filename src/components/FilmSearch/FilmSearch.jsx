@@ -37,8 +37,6 @@ export const FilmSearch = () => {
     setFilms([]);
   };
 
-  const isFilms = Boolean(films.length);
-
   return (
     <>
       <FilmSearchForm onSubmit={handleSearch} />

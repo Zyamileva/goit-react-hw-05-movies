@@ -2,16 +2,16 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 
 import Layout from 'components/Layout/Layout';
-import { Home } from 'pages/Home';
+import { Home } from 'pages/Home/Home';
 
 const Movies = lazy(() =>
-  import('./pages/Movies').then(module => ({
+  import('./pages/Movies/Movies').then(module => ({
     ...module,
     default: module.Movies,
   }))
 );
 const MovieDetails = lazy(() =>
-  import('./pages/MovieDetails').then(module => ({
+  import('./pages/MovieDetails/MovieDetails').then(module => ({
     ...module,
     default: module.MovieDetails,
   }))

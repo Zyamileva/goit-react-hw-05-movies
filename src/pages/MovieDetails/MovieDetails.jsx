@@ -1,9 +1,8 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { getFilmById } from 'api/filmsApi';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import SingleFilm from 'components/SingleFilm/SingleFilm';
-import ButtonBack from 'components/ButtonBack/ButtonBack';
-import { Container, NavLinks } from './MovieDetails.styled';
+import { Container, NavLinks, ButtonLink } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const [film, setFilm] = useState('');
@@ -11,6 +10,7 @@ export const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
 
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchFilm = async () => {
@@ -30,18 +30,22 @@ export const MovieDetails = () => {
   if (!film) {
     return null;
   }
+  const goBack = location.state?.from ?? '/';
 
   return (
     <div>
       {error && <p>{error}</p>}
       {loading && <p>...Loading</p>}
-      <ButtonBack />
+      <ButtonLink to={goBack}>← Go back</ButtonLink>
       <SingleFilm film={film} />
       <Container>
-        <NavLinks to={'cast'}>Cast</NavLinks>
-        <NavLinks to={'reviews'}>Reviews</NavLinks>
+        <NavLinks to={'cast'} state={{ from: goBack }}>
+          Cast
+        </NavLinks>
+        <NavLinks to={'reviews'} state={{ from: goBack }}>
+          Reviews
+        </NavLinks>
       </Container>
-
       <Suspense>
         <Outlet />
       </Suspense>

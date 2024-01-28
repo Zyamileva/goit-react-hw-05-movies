@@ -3,6 +3,7 @@ import { FilmItems, FilmLink, FilmImg, FilmName } from './FilmsItem.styled';
 
 const FilmsItem = ({ id, title, original_name, poster_path }) => {
   const imgUrl = 'https://image.tmdb.org/t/p/w500/';
+
   return (
     <FilmItems key={id}>
       <FilmLink to={`/movies/${id}`}>
