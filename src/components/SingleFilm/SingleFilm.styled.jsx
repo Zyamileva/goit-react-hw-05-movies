@@ -6,7 +6,9 @@ export const Container = styled.div`
   margin-top: 30px;
 `;
 
-export const Img = styled.img``;
+export const ImageFilm = styled.img`
+  height: 400px;
+`;
 
 export const Wrapper = styled.div``;
 

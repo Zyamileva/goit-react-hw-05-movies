@@ -22,20 +22,10 @@ export const getCastByIdFilm = id => {
   return instance.get(`/movie/${id}/credits?${searchParams}`);
 };
 
-// export const getPostById = id => {
-//   return instance.get(`/${id}`);
-// };
+export const getrReviewsByIdFilm = id => {
+  return instance.get(`/movie/${id}/reviews?${searchParams}`);
+};
 
-// export const searchPosts = (q, _page = 1) => {
-//   return instance.get('/', {
-//     params: {
-//       q,
-//       _limit: 6,
-//       _page,
-//     },
-//   });
-// };
-
-// export const getCommentsByPostId = id => {
-//   return instance.get(`/${id}/comments`);
-// };
+export const getrFilmsByName = name => {
+  return instance.get(`/search/movie?${searchParams}&query=${name}`);
+};

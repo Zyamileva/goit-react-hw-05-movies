@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Container,
-  Img,
+  ImageFilm,
   Wrapper,
   Title,
   Year,
@@ -22,7 +22,7 @@ const SingleFilm = ({ film }) => {
 
   return (
     <Container>
-      <Img src={imgUrl} alt="{title}" width="350" />
+      <ImageFilm src={imgUrl} alt="{title}" width="350" />
       <Wrapper>
         <Title>
           {title} <Year>({releaseDate})</Year>

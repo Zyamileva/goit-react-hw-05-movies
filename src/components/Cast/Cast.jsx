@@ -20,7 +20,11 @@ export const Cast = () => {
   const imgBaseUrl = 'https://image.tmdb.org/t/p/w500/';
 
   const { movieId } = useParams();
+
   useEffect(() => {
+    if (!movieId) {
+      return;
+    }
     const fetchFilms = async () => {
       try {
         setLoading(true);
