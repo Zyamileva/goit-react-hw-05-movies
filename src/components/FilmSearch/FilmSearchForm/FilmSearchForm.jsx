@@ -47,7 +47,7 @@ export const FilmSearchForm = ({ onSubmit }) => {
           required
           type="text"
           name="search"
-          placeholder="Enter search film"
+          placeholder="Enter movie title"
         />
       </div>
       <Button type="submit">Search</Button>
